@@ -1,0 +1,136 @@
+/* Сброс базовых стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Основное оформление */
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+body {
+  background: red;
+}
+
+/* Фон */
+.background {
+  background-image: url('background.jpg'); /* замени на своё фото */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.09);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 35s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-60%, -40%);
+  text-align: center;
+}
+
+.center-text h1 {
+  font-size: 6em;
+  margin-bottom: 1.5em;
+}
+
+.center-text p {
+  font-size: 1.5em;
+  margin-bottom: 0em;
+}
+.center-text a {
+  font-size: 1.25em;
+  margin-bottom: 2.75em;
+}
+
+/* Кнопка "Начать" */
+.start-btn {
+  display: inline-block;
+  padding: 0.8em 2em;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.start-btn:hover {
+  background-color: #fff;
+}
+
+/* Текст справа */
+.side-text {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  max-width: 550px;
+  font-size: 1.1em; //текст
+  line-height: 1.8;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  border-radius: 15px;
+}
+
+/* Кнопка "О проекте" */
+.about-btn {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  padding: 0.6em 1.5em;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.about-btn:hover {
+  background-color: #fff;
+}
+
+/* Текст внизу */
+.bottom-text {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5em 1.5em;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1em;
+}

@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+
+/* Подключение шрифтов Google Fonts (с поддержкой кириллицы) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  font-size: var(--text-base);
+  overflow-x: hidden;
+  
+  /* Легкая текстура для фона (шум) */
+  background-image: radial-gradient(circle at 50% 0%, rgba(197, 163, 106, 0.05) 0%, transparent 70%);
+  background-attachment: fixed;
+}
+
+/* Типографика */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-gold-light);
+  letter-spacing: 0.02em;
+}
+
+h1 { font-size: var(--text-3xl); font-weight: 700; }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+
+p {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+strong {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+/* Выделение текста */
+::selection {
+  background-color: var(--color-burgundy);
+  color: var(--color-text-main);
+}
+
+/* Контейнер для ограничения ширины контента */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Кастомный скроллбар для всего сайта */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-light);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-bg-main);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}

@@ -1,0 +1,351 @@
+/* ==========================================================================
+   Quest Page Styles (Страница квеста)
+   ========================================================================== */
+
+/* --- Основная разметка квеста --- */
+.quest-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-main);
+  overflow: hidden; /* Предотвращаем случайный скролл страницы на десктопе */
+}
+
+/* Верхняя панель квеста */
+.quest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+}
+
+/* --- Рабочая область (Карточка + Карта) --- */
+.quest-main {
+  display: flex;
+  flex: 1;
+  position: relative;
+  padding: var(--space-md);
+  gap: var(--space-md);
+  height: calc(100vh - 70px); /* 70px - примерная высота header */
+}
+
+/* --- Левая панель: Карточка с подсказкой --- */
+.quest-sidebar {
+  width: 350px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  z-index: 5;
+}
+
+.clue-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.clue-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-burgundy);
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+
+.clue-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--color-gold);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.clue-text {
+  font-size: var(--text-base);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.quest-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.quest-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+/* --- Правая панель: Карта --- */
+.quest-map-container {
+  flex: 1;
+  position: relative;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+}
+
+/* Фоновая карта (план музея) */
+.quest-map-bg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0.8; /* Слегка приглушаем яркость карты */
+  pointer-events: none;
+  user-select: none;
+}
+
+/* --- Миниатюры (Хотспоты) --- */
+.hotspot {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%); /* Центрирование по координатам */
+  padding: 3px;
+  background: var(--color-bg-main);
+  border: 1px solid var(--color-gold-dark);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  z-index: 2;
+}
+
+.hotspot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  filter: sepia(0.3) contrast(1.1);
+  transition: filter var(--transition-fast);
+}
+
+.hotspot:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 15px rgba(197, 163, 106, 0.6);
+  z-index: 3;
+}
+
+.hotspot:hover img {
+  filter: sepia(0) contrast(1);
+}
+
+/* Найденный (пройденный) хотспот */
+.hotspot.completed {
+  opacity: 0.4;
+  filter: grayscale(1);
+  border-color: var(--color-success);
+  pointer-events: none;
+}
+
+/* --- Панель экспоната (Выезжающая справа, как на макете) --- */
+.exhibit-panel {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  bottom: var(--space-md);
+  width: 320px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+  
+  /* Анимация выезда */
+  transform: translateX(120%);
+  transition: transform var(--transition-base);
+}
+
+.exhibit-panel.active {
+  transform: translateX(0);
+}
+
+.exhibit-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+}
+
+.exhibit-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.exhibit-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.exhibit-panel-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--color-text-muted);
+  font-size: 1.2rem;
+  background: var(--color-bg-main);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exhibit-panel-close:hover {
+  color: var(--color-gold);
+}
+
+/* --- Адаптивность для мобильных --- */
+@media (max-width: 900px) {
+  .quest-main {
+    flex-direction: column;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .quest-sidebar {
+    width: 100%;
+    order: 2; /* Карточка под картой */
+    margin-top: var(--space-md);
+  }
+
+  .quest-map-container {
+    min-height: 400px;
+    order: 1;
+  }
+  
+  .exhibit-panel {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 70vh;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    transform: translateY(100%);
+  }
+
+  .exhibit-panel.active {
+    transform: translateY(0);
+  }
+}
+/* ==========================================================================
+   Финальный экран (Final Screen)
+   ========================================================================== */
+
+.final-screen {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 16, 15, 0.95); /* Почти непрозрачный темный фон */
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  overflow-y: auto; /* Чтобы можно было скроллить длинное стихотворение */
+}
+
+.final-content {
+  max-width: 800px;
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(197, 163, 106, 0.15);
+  margin: auto; /* Центрирование при переполнении */
+}
+
+.final-content h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-sm);
+}
+
+.final-content h2 {
+  font-size: var(--text-xl);
+  color: var(--color-text-main);
+  margin-bottom: var(--space-lg);
+  font-family: var(--font-heading);
+}
+
+.poem-text {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  font-style: italic;
+}
+
+.poem-text p {
+  margin-bottom: var(--space-md);
+}
+
+.final-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-lg);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.final-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .final-stats {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .final-actions {
+    flex-direction: column;
+  }
+}

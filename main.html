@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Эхо войны 2.0 — Виртуальный музейный квест</title>
+  <meta name="description" content="Виртуальный музейный квест по экспонатам музея боевой славы отряда «Славный» ГУО «Средняя школа № 22 г. Могилева».">
+  
+  <!-- Open Graph для красивого отображения в соцсетях -->
+  <meta property="og:title" content="Эхо войны 2.0 — Виртуальный музей">
+  <meta property="og:description" content="Память, которую мы сохраняем. Интерактивный квест по музею боевой славы.">
+  <meta property="og:image" content="assets/images/museum.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Подключение стилей (Дизайн-система) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- Hero Section (Первый экран) -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-subtitle">ГУО «Средняя школа № 22 г. Могилева»</p>
+      <h1 class="hero-title">Память, которую<br>мы сохраняем</h1>
+      
+      <div class="divider">
+        <span class="divider-star">★</span>
+      </div>
+
+      <p class="hero-desc">
+        Добро пожаловать в виртуальный музейный квест по экспонатам музея боевой славы, 
+        посвященный подвигу отряда «Славный».
+      </p>
+
+      <div class="hero-actions">
+        <a href="index-in.html" class="btn btn-primary">
+          НАЧАТЬ ПУТЕШЕСТВИЕ
+        </a>
+        <a href="about.html" class="btn btn-outline">
+          О ПРОЕКТЕ
+        </a>
+      </div>
+    </div>
+
+    <!-- Панель со статистикой (как на макете) -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span>🏛</span> 21 экспонат
+      </div>
+      <div class="stat-item">
+        <span>🗺</span> Исторический маршрут
+      </div>
+      <div class="stat-item">
+        <span>🕊</span> Память поколений
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция "О музее / История" -->
+  <section class="section-history">
+    <div class="container">
+      <div class="history-grid">
+        <div class="history-text">
+          <h2 class="text-gold">Подвиг отряда «Славный»</h2>
+          <p>
+            Музей боевой славы ГУО «Средняя школа № 22 г. Могилева» был открыт более 40 лет назад. 
+            Его экспозиция бережно хранит память о героических страницах истории нашего народа.
+          </p>
+          <p>
+            Наши соседи — учителя и ученики школы № 22 — предоставили уникальные музейные предметы, 
+            документы и фотографии. На основе этих материалов мы создали интерактивный квест, 
+            который позволит вам прикоснуться к истории.
+          </p>
+          <a href="index-in.html" class="btn btn-primary" style="margin-top: 1rem;">
+            Перейти к квесту
+          </a>
+        </div>
+        <div class="history-image">
+          <!-- Убедитесь, что изображение лежит по этому пути -->
+          <img src="assets/images/museum.jpg" alt="Фотография музея боевой славы" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer style="padding: 2rem 0; text-align: center; border-top: 1px solid var(--color-border); margin-top: 2rem;">
+    <div class="container">
+      <p style="font-size: var(--text-sm); color: var(--color-text-muted);">
+        © 2025 Проект «Эхо войны 2.0». Создано учениками ГУО «Средняя школа № 12 г. Могилева».<br>
+        При поддержке музея боевой славы ГУО «Средняя школа № 22 г. Могилева».
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

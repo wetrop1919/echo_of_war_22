@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Design System - Variables
+   Проект: Эхо войны 2.0
+   ========================================================================== */
+
+:root {
+  /* --- Цветовая палитра (Dark Historical Museum) --- */
+  --color-bg-main: #11100F;
+  --color-bg-secondary: #1B1917;
+  --color-surface: #24201C;
+  --color-surface-light: #302A24;
+  
+  --color-burgundy: #761E22;
+  --color-burgundy-dark: #481518;
+  --color-burgundy-hover: #8c2429;
+  
+  --color-gold: #C5A36A;
+  --color-gold-light: #E1C99B;
+  --color-gold-dark: #9A7B4F;
+  
+  --color-text-main: #F0E9DC;
+  --color-text-muted: #AAA093;
+  
+  --color-border: rgba(197, 163, 106, 0.25);
+  --color-border-gold: rgba(197, 163, 106, 0.6);
+  
+  /* Статусы */
+  --color-success: #4CAF50;
+  --color-error: #E53935;
+
+  /* --- Типографика --- */
+  /* Подключение шрифтов будет в global.css */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Manrope', sans-serif;
+  
+  /* Размеры шрифтов (Fluid Typography) */
+  --text-xs: clamp(0.75rem, 1vw, 0.85rem);
+  --text-sm: clamp(0.875rem, 1.2vw, 0.95rem);
+  --text-base: clamp(1rem, 1.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 2vw, 1.25rem);
+  --text-xl: clamp(1.5rem, 3vw, 2rem);
+  --text-2xl: clamp(2rem, 4vw, 3rem);
+  --text-3xl: clamp(2.5rem, 6vw, 4.5rem);
+
+  /* --- Отступы и сетка --- */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+  
+  --container-width: 1400px;
+  --container-padding: 1.5rem;
+
+  /* --- Скругления и тени --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 50%;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 0 15px rgba(197, 163, 106, 0.2);
+
+  /* --- Анимации и переходы --- */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}

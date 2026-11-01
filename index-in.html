@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Музейный квест — Эхо войны 2.0</title>
+  <meta name="description" content="Виртуальный квест по экспонатам музея боевой славы отряда «Славный».">
+  
+  <!-- Подключение стилей (Дизайн-система) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/quest.css">
+</head>
+<body class="quest-layout">
+
+  <!-- Верхняя панель -->
+  <header class="quest-header">
+    <a href="main.html" class="btn btn-outline btn-sm">← На главную</a>
+    <div class="badge">Эхо войны 2.0</div>
+    <button id="toggle-sound" class="btn btn-outline btn-sm text-gold">🔊 Звук вкл.</button>
+  </header>
+
+  <!-- Основная зона квеста -->
+  <main class="quest-main">
+    
+    <!-- Левая колонка: Подсказки и управление -->
+    <aside class="quest-sidebar">
+      <div class="clue-card">
+        <div class="clue-title">
+          <span>★</span> Найдите экспонат
+        </div>
+        <p class="clue-text" id="clue-text">
+          Загрузка задания...
+        </p>
+        <div class="quest-progress" id="progress-text">
+          Найдено: <span class="text-gold">0</span> / 21
+        </div>
+      </div>
+
+      <div class="quest-controls">
+        <!-- Кнопка сброса (с подтверждением) -->
+        <button id="reset-progress" class="btn btn-secondary btn-sm">
+          Сбросить прогресс
+        </button>
+        <!-- Здесь в будущем можно добавить кнопку "Подсказка" -->
+      </div>
+    </aside>
+
+    <!-- Правая колонка: Карта -->
+    <div class="quest-map-container" id="map-container">
+      <!-- Фоновая карта музея -->
+      <img src="assets/images/map-plan.jpg" alt="План музея" class="quest-map-bg" id="map-bg">
+      
+      <!-- Хотспоты (миниатюры) будут добавлены через JS -->
+    </div>
+
+    <!-- Выезжающая панель с экспонатом -->
+    <div class="exhibit-panel" id="exhibit-panel">
+      <button class="exhibit-panel-close" id="exhibit-panel-close" aria-label="Закрыть">✕</button>
+      
+      <img src="" alt="" class="exhibit-image" id="exhibit-image">
+      <h3 class="exhibit-title" id="exhibit-title">Название</h3>
+      <p class="exhibit-desc" id="exhibit-desc">Описание...</p>
+      
+      <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+        <button class="btn btn-primary" id="exhibit-next-btn">Далее</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Финальный экран (Скрыт по умолчанию) -->
+  <div id="final-screen" class="final-screen hidden">
+    <div class="final-content">
+      <h1 class="text-gold">Квест пройден!</h1>
+      <div class="divider"><span class="divider-star">★</span></div>
+      
+      <h2>Послание от бойцов отряда «Славный»</h2>
+      
+      <div class="poem-text">
+        <p>
+          Из 41-го хотим вам пожелать<br>
+          Такого горя никогда не знать:<br>
+          Чтоб не летел на вас с неба огонь,<br>
+          Чтобы песни играла гармонь.
+        </p>
+        <p>
+          Пусть висит одиноко пилотка,<br>
+          А рядом с нею солдатская фотка.<br>
+          Кобура лежит для пистолета.<br>
+          А в 41-ом тяжкое выдалось лето.
+        </p>
+        <p>
+          Снаряды летели, взрывались,<br>
+          Гильзы чёрные в землю втыкались.<br>
+          От жажды спасала нас фляжка.<br>
+          У командира пробита фуражка.
+        </p>
+        <p>
+          Нас каска от пуль защищала.<br>
+          Балалайка от скуки спасала.<br>
+          Фашист наступал до зимы.<br>
+          Но не смог он дойти до Москвы.
+        </p>
+        <p>
+          Мы поганого зверя погнали.<br>
+          Берёзки и сосны своих защищали.<br>
+          Мы с победой вернулись домой.<br>
+          Чемодан прихватили с собой.
+        </p>
+        <p>
+          Дневник в чемодане друзьям.<br>
+          От солдат 45-го - вам!<br>
+          О том, как сражался отряд,<br>
+          Как лучших терял он ребят.
+        </p>
+        <p>
+          Они жизни свои положили,<br>
+          Чтобы в мире народы все жили.<br>
+          Память о «Славном», ребята, храните!<br>
+          И МИР на земле сберегите!
+        </p>
+      </div>
+
+      <div class="final-stats">
+        <p>Найдено экспонатов: <span id="final-found" class="text-gold">21</span></p>
+        <p>Допущено ошибок: <span id="final-errors" class="text-gold">0</span></p>
+      </div>
+
+      <div class="final-actions">
+        <button id="restart-quest" class="btn btn-primary">Пройти заново</button>
+        <a href="main.html" class="btn btn-outline">На главную</a>
+        <a href="about.html" class="btn btn-outline">О проекте</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Подключение модулей JS (type="module" необходим для работы импортов) -->
+  <script type="module" src="js/quest.js"></script>
+</body>
+</html>

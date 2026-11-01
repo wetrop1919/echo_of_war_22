@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О проекте — Эхо войны 2.0</title>
+  <meta name="description" content="Информация о создателях, миссии и целях виртуального музея «Эхо войны».">
+  
+  <!-- Подключение стилей -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/home.css"> <!-- Используем базовые стили контейнера -->
+  
+  <!-- Дополнительные стили для страницы "О проекте" -->
+  <style>
+    .about-section {
+      padding: var(--space-2xl) 0;
+    }
+    .about-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+    .about-header h1 {
+      font-size: var(--text-3xl);
+      color: var(--color-gold);
+      margin-bottom: var(--space-sm);
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+      background: var(--color-surface);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+    .avatar {
+      width: 60px;
+      height: 60px;
+      background: var(--color-burgundy);
+      color: var(--color-gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-full);
+      font-weight: bold;
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      border: 2px solid var(--color-gold);
+    }
+    .timeline-list {
+      list-style: none;
+      padding: 0;
+      margin-top: var(--space-md);
+      border-left: 2px solid var(--color-burgundy);
+      padding-left: var(--space-md);
+    }
+    .timeline-list li {
+      margin-bottom: var(--space-md);
+      position: relative;
+    }
+    .timeline-list li::before {
+      content: '★';
+      position: absolute;
+      left: calc(var(--space-md) * -1 - 9px);
+      top: 2px;
+      color: var(--color-gold);
+      background: var(--color-bg-main);
+    }
+    .timeline-list strong {
+      color: var(--color-gold-light);
+      display: block;
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка с навигацией -->
+  <header style="padding: var(--space-md) 0; border-bottom: 1px solid var(--color-border);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="main.html" class="btn btn-outline btn-sm">← На главную</a>
+      <span class="badge">Эхо войны 2.0</span>
+    </div>
+  </header>
+
+  <main class="container about-section">
+    
+    <div class="about-header">
+      <h1>О проекте</h1>
+      <p>Виртуальный музейный квест «Эхо войны»</p>
+    </div>
+
+    <!-- Секция Миссия и Цели -->
+    <section class="section-history" style="padding-top: 0;">
+      <div class="history-grid">
+        <div class="history-text">
+          <h2 class="text-gold">Миссия проекта</h2>
+          <p>
+            Обеспечить доступный и увлекательный формат сохранения исторической памяти о событиях 
+            Великой Отечественной войны, познакомить школьников и гостей с музейными экспонатами 
+            и историями, связанными с подвигами местных защитников.
+          </p>
+          <p>
+            Проект реализован в сотрудничестве с музейным кабинетом ГУО «Средняя школа №22 г. Могилева» 
+            (музей боевой славы) и учениками ГУО «Средняя школа №12 г. Могилева».
+          </p>
+        </div>
+        <div class="card card-decorated">
+          <h3 class="text-gold" style="margin-bottom: var(--space-sm);">Цели</h3>
+          <ul style="color: var(--color-text-muted); line-height: 1.8;">
+            <li>★ Разработка виртуального квеста на основе архивных материалов</li>
+            <li>★ Проведение экспертизы и демонстрация специалистам</li>
+            <li>★ Размещение в интернете для широкой аудитории</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"><span class="divider-star">★</span></div>
+
+    <!-- Секция Этапы и Команда -->
+    <div class="grid-3">
+      
+      <!-- Этапы -->
+      <div>
+        <h2 class="text-gold" style="margin-bottom: var(--space-md);">Этапы проекта</h2>
+        <ul class="timeline-list">
+          <li>
+            <strong>Фаза 1 — Исследования</strong>
+            <p>Сбор требований, изучение музейных экспонатов и архивных материалов, подготовка сценария квеста.</p>
+          </li>
+          <li>
+            <strong>Фаза 2 — Разработка</strong>
+            <p>Реализация интерфейса квеста, наполнение заданиями и медиа-контентом, тестирование.</p>
+          </li>
+          <li>
+            <strong>Фаза 3 — Внедрение</strong>
+            <p>Публикация на сайте, пилотный запуск и сбор отзывов.</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Команда -->
+      <div>
+        <h2 class="text-gold" style="margin-bottom: var(--space-md);">Команда</h2>
+        
+        <div class="team-member">
+          <div class="avatar">ШВС</div>
+          <div>
+            <strong style="color: var(--color-text-main);">Шавель Виктория Сергеевна</strong>
+            <div style="font-size: var(--text-sm); color: var(--color-text-muted);">Руководитель проекта</div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="avatar">РМЕ</div>
+          <div>
+            <strong style="color: var(--color-text-main);">Романовский Мефодий Егорович</strong>
+            <div style="font-size: var(--text-sm); color: var(--color-text-muted);">Разработчик</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Контакты -->
+      <div>
+        <h2 class="text-gold" style="margin-bottom: var(--space-md);">Контакты</h2>
+        <div class="card">
+          <p>По общим вопросам и предложениям обращайтесь:</p>
+          <p><strong>ГУО «Средняя школа №12 г. Могилева»</strong></p>
+          <p style="font-size: var(--text-sm);">Для внутренних запросов используйте согласованные каналы связи.</p>
+          
+          <!-- Место для QR-кода (пока в виде кнопки-ссылки) -->
+          <div style="margin-top: var(--space-md); text-align: center;">
+            <a href="index-in.html" class="btn btn-primary btn-sm" style="width: 100%;">Перейти к квесту</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Футер -->
+  <footer style="padding: 2rem 0; text-align: center; border-top: 1px solid var(--color-border); margin-top: 2rem;">
+    <div class="container">
+      <p style="font-size: var(--text-sm); color: var(--color-text-muted);">
+        © 2025 Проект «Эхо войны 2.0». Проект создан в рамках инициативы по сохранению исторической памяти.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

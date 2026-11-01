@@ -1,0 +1,188 @@
+/* ==========================================================================
+   Home Page Styles (Главная страница)
+   ========================================================================== */
+
+/* --- Hero Section (Первый экран) --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  background-image: url('../assets/images/museum.jpg'); /* Убедитесь, что museum.jpg лежит в assets/images/ */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Затемнение фона для читаемости текста */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 16, 15, 0.7) 0%,
+    rgba(17, 16, 15, 0.85) 50%,
+    var(--color-bg-main) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+}
+
+.hero-title {
+  font-size: var(--text-3xl);
+  color: var(--color-text-main);
+  margin-bottom: var(--space-md);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+.hero-desc {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- Панель статистики (Под Hero) --- */
+.stats-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2xl);
+  width: 100%;
+  max-width: var(--container-width);
+  margin-top: var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(36, 32, 28, 0.6);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-main);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.stat-item svg,
+.stat-item i {
+  color: var(--color-gold);
+  font-size: 1.5rem;
+}
+
+/* --- Секция "О музее / История" --- */
+.section-history {
+  padding: var(--space-2xl) 0;
+  background-color: var(--color-bg-main);
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.history-text h2 {
+  margin-bottom: var(--space-md);
+}
+
+.history-text p {
+  margin-bottom: var(--space-md);
+  font-size: var(--text-base);
+  line-height: 1.8;
+}
+
+.history-image {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.history-image img {
+  width: 100%;
+  height: auto;
+  transition: transform var(--transition-slow);
+}
+
+.history-image:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Анимации --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Адаптивность главной --- */
+@media (max-width: 992px) {
+  .history-grid {
+    grid-template-columns: 1fr;
+  }
+  .history-image {
+    order: -1; /* Картинка над текстом на мобильных */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .stats-bar {
+    gap: var(--space-md);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-md);
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
